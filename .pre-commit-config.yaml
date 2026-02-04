@@ -1,0 +1,33 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+    - repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v2.3.0
+      hooks:
+          - id: check-yaml
+            name: Проверка Yaml файлов
+          - id: end-of-file-fixer
+            name: Проверка пустых строк в конце файлов
+          - id: trailing-whitespace
+            name: Проверка висячих пробелов
+    - repo: https://github.com/pycqa/isort
+      rev: 6.0.1
+      hooks:
+          - id: isort
+            args: ["--profile=black"]
+            name: isort (python)
+    - repo: https://github.com/astral-sh/ruff-pre-commit
+      rev: v0.12.8
+      hooks:
+          - id: ruff-check
+            args: [--fix]
+            name: Линтирование
+          - id: ruff-format
+    - repo: local
+      hooks:
+          - id: pytest
+            name: Тесты
+            entry: uv run pytest
+            language: system
+            verbose: true
+            pass_filenames: false
