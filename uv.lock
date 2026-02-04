@@ -1118,12 +1118,14 @@ source = { virtual = "." }
 dependencies = [
     { name = "fastmcp" },
     { name = "pre-commit" },
+    { name = "pydantic-settings" },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "fastmcp", specifier = ">=2.14.5" },
     { name = "pre-commit", specifier = ">=4.5.1" },
+    { name = "pydantic-settings", specifier = ">=2.12.0" },
 ]
 
 [[package]]
